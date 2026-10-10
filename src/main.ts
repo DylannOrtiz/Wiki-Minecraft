@@ -11,6 +11,7 @@ async function bootstrap() {
       transform: true,
     }),
   );
+  app.getHttpAdapter().getInstance().set('json spaces', 2);
   await app.listen(process.env.PORT ?? 3000);
 }
 void bootstrap();

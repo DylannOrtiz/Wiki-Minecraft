@@ -23,10 +23,10 @@ export class CreateMobDto {
   @IsString()
   nombre: string;
 
-  @IsIn(['hostil', 'neutral', 'pasivo'])
+  @IsIn(['host  il', 'neutral', 'pasivo'])
   tipo: 'hostil' | 'neutral' | 'pasivo';
 
-  @IsString()
+  @IsString() 
   aspectoYComportamiento: string;
 
   @IsArray()
