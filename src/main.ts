@@ -11,6 +11,14 @@ async function bootstrap() {
       transform: true,
     }),
   );
+  const allowedOrigins = (process.env.CORS_ORIGIN ?? 'http://localhost:3001')
+    .split(',')
+    .map((origin) => origin.trim())
+    .filter((origin) => origin !== '');
+  app.enableCors({
+    origin: allowedOrigins,
+    methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
+  });
   app.getHttpAdapter().getInstance().set('json spaces', 2);
   await app.listen(process.env.PORT ?? 3000);
 }
